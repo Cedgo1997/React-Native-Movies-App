@@ -1,20 +1,23 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
 import { useNavigation } from '@react-navigation/core';
-import React, { useEffect } from 'react';
-import { Button, Text, View } from 'react-native';
-import movieDB from '../api/movieDB';
-import { MovieDbNowPlaying } from '../interfaces/movieInterface';
+import React from 'react';
+import { ActivityIndicator, Button, Text, View } from 'react-native';
+import { useMovies } from '../hooks/useMovies';
 
 export const HomeScreen = () => {
 
   const navigation = useNavigation();
 
+  const { currentMovies, isLoading } = useMovies();
 
-  useEffect(() => {
-    movieDB.get<MovieDbNowPlaying>('/now_playing').then(resp => {
-      console.log(resp.data.results[0].title);
-    });
-  }, []);
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+        <ActivityIndicator color="red" size={20} />
+      </View>
+    )
+  }
 
   return (
     <View>
