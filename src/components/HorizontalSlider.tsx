@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { Text, View } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native';
 import { Movie } from '../interfaces/movieInterface';
 import { MoviePoster } from './MoviePoster';
 
@@ -14,7 +14,7 @@ interface Props {
 export const HorizontalSlider = ({ title = '', movies }: Props) => {
     return (
         <View style={{ height: 260 }}>
-            <Text style={{ fontSize: 25, fontWeight: 'bold' }} >{title}</Text>
+            <Text style={{ fontSize: 25, fontWeight: 'bold', marginLeft: 10 }} >{title}</Text>
             <FlatList
                 data={movies}
                 renderItem={({ item }) => (

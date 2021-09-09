@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-export interface MovieDbNowPlaying {
+export interface MovieDbResponse {
     dates:         Dates;
     page:          number;
     results:       Movie[];
