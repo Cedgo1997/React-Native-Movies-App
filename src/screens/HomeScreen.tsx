@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Carousel from 'react-native-snap-carousel';
 import { ActivityIndicator, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -24,6 +24,12 @@ export const HomeScreen = () => {
     const { primary = 'black', secondary = 'blue' } = await getImageColors(uri);
     setMainColors({ primary, secondary });
   }
+
+  useEffect(() => {
+    if (nowPlaying.length > 0) {
+      getPosterColors(0);
+    }
+  }, [nowPlaying])
 
   if (isLoading) {
     return (
