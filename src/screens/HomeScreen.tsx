@@ -7,12 +7,21 @@ import { useMovies } from '../hooks/useMovies';
 import { ScrollView } from 'react-native-gesture-handler';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 import { GradientBackground } from '../components/GradientBackground';
+import { getImageColors } from '../helpers/getColors';
 
 export const HomeScreen = () => {
+
 
   const { width } = useWindowDimensions();
   const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
   const { top } = useSafeAreaInsets();
+
+  const getPosterColors = async (index: number) => {
+    const movie = nowPlaying[index]
+    const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const { primary, secondary } = await getImageColors(uri);
+    console.log(primary, secondary);
+  }
 
   if (isLoading) {
     return (
@@ -40,6 +49,7 @@ export const HomeScreen = () => {
               sliderWidth={width}
               windowSize={1}
               inactiveSlideOpacity={0.8}
+              onSnapToItem={index => getPosterColors(index)}
             />
           </View>
 
