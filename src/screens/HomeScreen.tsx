@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import Carousel from 'react-native-snap-carousel';
 import { ActivityIndicator, useWindowDimensions, View } from 'react-native';

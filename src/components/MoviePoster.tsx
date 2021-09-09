@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';

@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { ActivityIndicator, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
