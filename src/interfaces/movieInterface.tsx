@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 export interface MovieDbResponse {
-    dates:         Dates;
+    dates?:         Dates;
     page:          number;
     results:       Movie[];
     total_pages:   number;
