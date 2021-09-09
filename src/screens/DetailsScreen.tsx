@@ -1,9 +1,12 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { RootStackParams } from '../navigation/Navigation';
+import { useMovieDetails } from '../hooks/useMovieDetails';
+import { MovieDetails } from '../components/MovieDetails';
 
 const { height } = Dimensions.get('screen');
 
@@ -13,6 +16,8 @@ export const DetailsScreen = ({ route }: Props) => {
 
   const movie = route.params;
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  const { isLoading, movieFull, cast } = useMovieDetails(movie.id);
+
   return (
     <ScrollView>
       <View style={styles.imageContainer}>
@@ -24,6 +29,11 @@ export const DetailsScreen = ({ route }: Props) => {
         <Text style={styles.subTitle}>{movie.original_title}</Text>
         <Text style={styles.title}>{movie.title}</Text>
       </View>
+      {
+        isLoading
+          ? <ActivityIndicator size={35} color="grey" style={{ marginTop: 20 }} />
+          : <MovieDetails movieFull={movieFull!} cast={cast!} />
+      }
     </ScrollView>
   );
 };
