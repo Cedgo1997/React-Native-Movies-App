@@ -6,6 +6,7 @@ import { MoviePoster } from '../components/MoviePoster';
 import { useMovies } from '../hooks/useMovies';
 import { ScrollView } from 'react-native-gesture-handler';
 import { HorizontalSlider } from '../components/HorizontalSlider';
+import { GradientBackground } from '../components/GradientBackground';
 
 export const HomeScreen = () => {
 
@@ -22,30 +23,33 @@ export const HomeScreen = () => {
   }
 
   return (
-    <ScrollView>
+    <GradientBackground>
 
-      <View style={{ marginTop: top + 20 }}>
+      <ScrollView>
 
-        {/* Main movies */}
+        <View style={{ marginTop: top + 20 }}>
 
-        <View style={{ height: 440 }}>
-          <Carousel
-            data={nowPlaying}
-            renderItem={({ item }) => <MoviePoster movie={item} />}
-            itemWidth={300}
-            itemHeight={420}
-            sliderWidth={width}
-            windowSize={1}
-            inactiveSlideOpacity={0.8}
-          />
+          {/* Main movies */}
+
+          <View style={{ height: 440 }}>
+            <Carousel
+              data={nowPlaying}
+              renderItem={({ item }) => <MoviePoster movie={item} />}
+              itemWidth={300}
+              itemHeight={420}
+              sliderWidth={width}
+              windowSize={1}
+              inactiveSlideOpacity={0.8}
+            />
+          </View>
+
+          {/* Popular movies */}
+          <HorizontalSlider movies={nowPlaying} title="Now Playing" />
+          <HorizontalSlider movies={popular} title="Popular" />
+          <HorizontalSlider movies={topRated} title="Top Rated" />
+          <HorizontalSlider movies={upcoming} title="Upcoming" />
         </View>
-
-        {/* Popular movies */}
-        <HorizontalSlider movies={nowPlaying} title="Now Playing" />
-        <HorizontalSlider movies={popular} title="Popular" />
-        <HorizontalSlider movies={topRated} title="Top Rated" />
-        <HorizontalSlider movies={upcoming} title="Upcoming" />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </GradientBackground>
   );
 };
