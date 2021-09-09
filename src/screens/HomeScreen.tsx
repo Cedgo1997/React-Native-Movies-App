@@ -11,7 +11,6 @@ import { getImageColors } from '../helpers/getColors';
 
 export const HomeScreen = () => {
 
-
   const { width } = useWindowDimensions();
   const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
   const { top } = useSafeAreaInsets();
@@ -33,13 +32,10 @@ export const HomeScreen = () => {
 
   return (
     <GradientBackground>
-
       <ScrollView>
-
         <View style={{ marginTop: top + 20 }}>
 
           {/* Main movies */}
-
           <View style={{ height: 440 }}>
             <Carousel
               data={nowPlaying}
