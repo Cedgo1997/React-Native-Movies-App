@@ -7,7 +7,7 @@ import { RootStackParams } from '../navigation/Navigation';
 
 const { height } = Dimensions.get('screen');
 
-interface Props extends StackScreenProps<RootStackParams, 'Details'> { };
+interface Props extends StackScreenProps<RootStackParams, 'Details'> { }
 
 export const DetailsScreen = ({ route }: Props) => {
 
@@ -16,7 +16,9 @@ export const DetailsScreen = ({ route }: Props) => {
   return (
     <ScrollView>
       <View style={styles.imageContainer}>
-        <Image source={{ uri }} style={styles.imagePoster} />
+        <View style={styles.imageBorder}>
+          <Image source={{ uri }} style={styles.imagePoster} />
+        </View>
       </View>
       <View style={styles.marginContainer}>
         <Text style={styles.subTitle}>{movie.original_title}</Text>
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.24,
     shadowRadius: 7,
     elevation: 9,
+
     borderBottomEndRadius: 25,
     borderBottomStartRadius: 25,
     overflow: 'hidden',
@@ -57,5 +60,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  imageBorder: {
+    flex: 1,
+    borderBottomEndRadius: 25,
+    borderBottomStartRadius: 25,
+    overflow: 'hidden',
   },
 });
