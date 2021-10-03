@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useEffect, useState } from 'react';
 import movieDB from '../api/movieDB';
 import { Cast, CreditsResponse } from '../interfaces/creditsInterface';

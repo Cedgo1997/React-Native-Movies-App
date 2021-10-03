@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export interface CreditsResponse {
     id:   number;
     cast: Cast[];

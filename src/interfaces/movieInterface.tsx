@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export interface MovieDbResponse {
     dates?:         Dates;
     page:          number;

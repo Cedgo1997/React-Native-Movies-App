@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import movieDB from '../api/movieDB';
